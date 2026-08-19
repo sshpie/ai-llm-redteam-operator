@@ -7,7 +7,7 @@ Quick start:
     from ai_llm_redteam_operator import AI_LLM_RedTeam_Operator
 
     op = AI_LLM_RedTeam_Operator(
-        db_path="nuclide.db",
+        db_path=".db",
         coords_path="coords.json",
         details_path="details.json",
     )

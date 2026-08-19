@@ -19,7 +19,7 @@ import sys
 from .operator import AI_LLM_RedTeam_Operator
 
 
-DEFAULT_DB      = os.path.expanduser("~/AI-LLM-Infrastructure-OSINT/data/nuclide.db")
+DEFAULT_DB      = os.path.expanduser("~/AI-LLM-Infrastructure-OSINT/data/.db")
 DEFAULT_COORDS  = os.path.expanduser("~/AI-LLM-Infrastructure-OSINT/data/coords.json")
 DEFAULT_DETAILS = os.path.expanduser("~/AI-LLM-Infrastructure-OSINT/data/details.json")
 
@@ -43,7 +43,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Value within the chosen focus dimension",
     )
     p.add_argument(
-        "--db",      default=DEFAULT_DB,      metavar="PATH", help="Path to nuclide.db")
+        "--db",      default=DEFAULT_DB,      metavar="PATH", help="Path to .db")
     p.add_argument(
         "--coords",  default=DEFAULT_COORDS,  metavar="PATH", help="Path to coords.json")
     p.add_argument(

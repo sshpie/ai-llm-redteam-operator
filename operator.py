@@ -1,7 +1,7 @@
 """
 AI_LLM_RedTeam_Operator — main class.
 
-Wire to nuclide.db, coords.json, and details.json by passing real paths;
+Wire to .db, coords.json, and details.json by passing real paths;
 the stubs below mark exactly where SQL/JSON loading goes.
 
 Tactical playbook is in playbook.py; models are in models.py.
@@ -34,7 +34,7 @@ class AI_LLM_RedTeam_Operator:
     Operator-grade scenario packet generator for AI/LLM infrastructure assessments.
 
     Usage:
-        op = AI_LLM_RedTeam_Operator("nuclide.db", "coords.json", "details.json")
+        op = AI_LLM_RedTeam_Operator(".db", "coords.json", "details.json")
         packet = op.generate_scenario_packet("category", "open_gateways")
         print(op.render_markdown(packet))
         print(json.dumps(packet, indent=2))  # machine-consumable
@@ -125,7 +125,7 @@ class AI_LLM_RedTeam_Operator:
         self, focus_type: str, focus_value: str, opts: Dict
     ) -> List[Dict]:
         """
-        Return host rows from nuclide.db matching the focus.
+        Return host rows from .db matching the focus.
 
         Production SQL patterns:
 
@@ -224,7 +224,7 @@ class AI_LLM_RedTeam_Operator:
         """
         Summarise host population for the chosen focus.
 
-        Severity/sector counts come from nuclide.db rows.
+        Severity/sector counts come from .db rows.
         Auth posture counts come from details.json records.
         Typical platforms come from the playbook (or are inferred from details for
         attack_path / category focuses where platform is known).
@@ -283,7 +283,7 @@ class AI_LLM_RedTeam_Operator:
 
         Extension points:
           - Augment surface_elements with shadow ports discovered by the scanner
-            step (nuclide.db host_ports table if present).
+            step (.db host_ports table if present).
           - Add version-specific probes when aimap version data is available.
           - Incorporate dork strings from tome for passive pre-validation.
 
@@ -402,7 +402,7 @@ class AI_LLM_RedTeam_Operator:
 
     @staticmethod
     def _stub_rows() -> List[Dict]:
-        """Placeholder rows returned when nuclide.db is not yet connected."""
+        """Placeholder rows returned when .db is not yet connected."""
         return [
             {"ip": "10.0.0.1", "owner": "Commercial Inc",  "country": "US", "sector": "commercial",  "severity": "critical", "survey_id": "stub-1"},
             {"ip": "10.0.0.2", "owner": "University A",    "country": "DE", "sector": "university",  "severity": "high",     "survey_id": "stub-1"},

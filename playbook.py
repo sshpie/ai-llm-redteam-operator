@@ -383,7 +383,7 @@ CATEGORY_PLAYBOOK: dict = {
                     "User persona names or internal tool references.",
                 ],
                 "severity_if_confirmed": "medium",
-                "notes": "Treat system prompt content as operational intelligence, not just info. Combine with sector data from nuclide.db to assess regulatory exposure.",
+                "notes": "Treat system prompt content as operational intelligence, not just info. Combine with sector data from .db to assess regulatory exposure.",
             },
             {
                 "id": "TC3",
